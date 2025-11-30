@@ -7,3 +7,7 @@ L’objectif principal est de permettre aux étudiants de configurer un pipeline
 
 ## 👤 Auteur
 ESPRIT - UP ASI - Alaa RAMI  
+
+
+## changes& pushes for the project pipeline
+"try 1 <3"
