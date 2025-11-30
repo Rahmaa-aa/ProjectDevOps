@@ -5,7 +5,7 @@ pipeline {
         jdk "JAVA_HOME"
     }
     environment {
-        IMAGE_NAME = "rahmaaaaaa/student-management"
+        IMAGE_NAME = "rahmaaaaa/student-management"
         DOCKER_HUB_CREDS = "docker-hub-creds"
     }
     stages {
