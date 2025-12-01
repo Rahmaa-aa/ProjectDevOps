@@ -15,6 +15,20 @@ pipeline {
                 junit 'target/surefire-reports/*.xml'
             }
         }
+        stage("Deploy to Nexus") {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'nexus-creds', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                    sh "mvn deploy -s settings.xml -DskipTests"
+                }
+            }
+        }
+        stage("Deploy to Nexus") {
+            steps {
+                configFileProvider([configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "mvn deploy -s $MAVEN_SETTINGS -DskipTests"
+                }
+            }
+        }
         stage("Docker Build & Push") {
             steps {
                 script {

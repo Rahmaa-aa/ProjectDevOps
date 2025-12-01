@@ -84,4 +84,11 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>student-release</id>
+            <url>http://localhost:8081/repository/student-release/</url>
+        </repository>
+    </distributionManagement>
+
 </project>
