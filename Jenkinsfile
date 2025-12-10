@@ -33,10 +33,11 @@ pipeline {
                 }
             }
         }
-        stage("Deploy") {
+        stage("Deploy to K8s") {
             steps {
-                sh "docker compose down || true"
-                sh "docker compose up -d"
+                sh "kubectl apply -f k8s/mysql-deployment.yaml"
+                sh "kubectl apply -f k8s/spring-deployment.yaml"
+                sh "kubectl rollout restart deployment/student-app -n devops"
             }
         }
     }
