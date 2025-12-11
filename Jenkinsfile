@@ -15,6 +15,13 @@ pipeline {
                 junit 'target/surefire-reports/*.xml'
             }
         }
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    sh "mvn sonar:sonar"
+                }
+            }
+        }
         stage("Deploy to Nexus") {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-creds', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
