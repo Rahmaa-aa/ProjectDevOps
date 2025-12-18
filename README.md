@@ -12,3 +12,4 @@ ESPRIT - UP ASI - Alaa RAMI
 ## changes& pushes for the project pipeline
 "try 1 <3"
 "try n idk just before the validation to make sure my work is working"
+"testing for the final validation kube,sonar"
